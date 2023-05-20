@@ -51,7 +51,7 @@ def calculate_calories(weight, height, age, activity, trimester, medical_conditi
     return calories
 
 def recommend_diet(calories):
-    github_url = "https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv/diets.csv"
+    github_url = "https://raw.githubusercontent.com/PanasheManyonganise/diet/master/diets.csv"
     diets = pd.read_csv(github_url)
     diets = diets.dropna(subset=["Diet_Name", "calories", "fats", "carbohydrates", "sugar", "vitamins", "protein"])
     diets = diets.sample(n=3)
