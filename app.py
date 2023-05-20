@@ -50,7 +50,7 @@ def calculate_calories(weight, height, age, activity, trimester, medical_conditi
     return calories
 
 def recommend_diet(calories):
-    diets = pd.read_csv("https://github.com/PanasheManyonganise/diet/blob/master/user.csv")
+    diets = pd.read_csv("https://github.com/PanasheManyonganise/diet/blob/master/diets.csv")
     diets = diets.dropna(subset=["Diet_Name", "calories", "fats", "carbohydrates", "sugar", "vitamins", "protein"])
     diets = diets.sample(n=3)
     diet = []
@@ -59,7 +59,7 @@ def recommend_diet(calories):
     return ', '.join(diet)
     
 def save_user_details(first_name, last_name, age, weight, height, trimester, medical_condition, activity, bmi, weight_status, calories, diet):
-    with open('user.csv', mode='a', newline='') as user_file:
+    with open('https://github.com/PanasheManyonganise/diet/blob/master/user.csv', mode='a', newline='') as user_file:
         writer = csv.writer(user_file)
         writer.writerow([first_name, last_name, age, weight, height, trimester, medical_condition, activity, bmi, weight_status, calories, diet])
 
