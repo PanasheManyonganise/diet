@@ -50,7 +50,7 @@ def calculate_calories(weight, height, age, activity, trimester, medical_conditi
     return calories
 
 def recommend_diet(calories):
-    diets = pd.read_csv(r"C:\Users\victoria\Desktop\utanoaidiet\diets.csv")
+    diets = pd.read_csv("https://github.com/PanasheManyonganise/diet/blob/master/user.csv")
     diets = diets.dropna(subset=["Diet_Name", "calories", "fats", "carbohydrates", "sugar", "vitamins", "protein"])
     diets = diets.sample(n=3)
     diet = []
