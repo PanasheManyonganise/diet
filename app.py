@@ -48,7 +48,7 @@ def calculate_calories(weight, height, age, activity, trimester, medical_conditi
         calories = bmr * 1.9
 
     return calories
-https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv
+
 def recommend_diet(calories):
     github_url = "https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv/diets.csv"
     diets = pd.read_csv(github_url)
