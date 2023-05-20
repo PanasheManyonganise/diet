@@ -48,18 +48,21 @@ def calculate_calories(weight, height, age, activity, trimester, medical_conditi
         calories = bmr * 1.9
 
     return calories
-
+https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv
 def recommend_diet(calories):
-    diets = pd.read_csv("https://github.com/PanasheManyonganise/diet/blob/master/diets.csv")
+    github_url = "https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv/diets.csv"
+    diets = pd.read_csv(github_url)
     diets = diets.dropna(subset=["Diet_Name", "calories", "fats", "carbohydrates", "sugar", "vitamins", "protein"])
     diets = diets.sample(n=3)
     diet = []
     for i, row in diets.iterrows():
-        diet.append(f"{row['Diet_Name']} ({row['calories']} calories, {row['fats']}g fats, {row['carbohydrates']}g carbohydrates, {row['sugar']}g sugar, {row['vitamins']}g vitamins, {row['protein']}g protein)")
+        diet.append(
+            f"{row['Diet_Name']} ({row['calories']} calories, {row['fats']}g fats, {row['carbohydrates']}g carbohydrates, {row['sugar']}g sugar, {row['vitamins']}g vitamins, {row['protein']}g protein)"
+        )
     return ', '.join(diet)
     
 def save_user_details(first_name, last_name, age, weight, height, trimester, medical_condition, activity, bmi, weight_status, calories, diet):
-    with open('https://github.com/PanasheManyonganise/diet/blob/master/user.csv', mode='a', newline='') as user_file:
+    with open('https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv', mode='a', newline='') as user_file:
         writer = csv.writer(user_file)
         writer.writerow([first_name, last_name, age, weight, height, trimester, medical_condition, activity, bmi, weight_status, calories, diet])
 
