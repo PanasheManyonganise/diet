@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import csv
+import os
 
 st.set_page_config(page_title="AI Dietician for Pregnant Women")
 
@@ -62,7 +63,8 @@ def recommend_diet(calories):
     return ', '.join(diet)
     
 def save_user_details(first_name, last_name, age, weight, height, trimester, medical_condition, activity, bmi, weight_status, calories, diet):
-    with open('https://raw.githubusercontent.com/PanasheManyonganise/diet/master/user.csv', mode='a', newline='') as user_file:
+    filepath = os.path.join(os.getcwd(), "user.csv")  # Relative path to "user.csv" in the same directory
+    with open(filepath, mode='a', newline='') as user_file:
         writer = csv.writer(user_file)
         writer.writerow([first_name, last_name, age, weight, height, trimester, medical_condition, activity, bmi, weight_status, calories, diet])
 
